@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Please sign in</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div id="container">
+    <h2>Please sign in</h2>
+    <form th:action="@{/login}" method="post" class="form-horizontal">
+        <input type="text" id="username" name="username" placeholder="Email address" autofocus="autofocus" />
+        <br>
+        <input type="password" id="password" placeholder="Password" name="password" />
+        <input id="submit" type="submit" value="Sign in" />
+    </form>
+</div>
+</body>
+</html>
