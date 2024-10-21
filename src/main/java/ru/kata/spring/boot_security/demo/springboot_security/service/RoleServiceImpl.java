@@ -20,6 +20,7 @@ public class RoleServiceImpl implements RoleService {
     @Override
     @Transactional
     public List<Role> getRolesByIds(List<Long> ids) {
+
         return roleDao.getRolesByIds(ids);
     }
 }
