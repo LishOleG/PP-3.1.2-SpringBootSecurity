@@ -23,14 +23,6 @@ public class myAdminController {
     private final UserService userService;
     private final RoleService roleService;
 
-//    List<User> getAllUsers();
-//    void save(User user);
-//    User showUserById(long id);
-//    void update(long id, User user);
-//    void delete(long id);
-//    User getUserByNameWithRoles(String name);
-//    String bcryptPass(String pass);
-//
     @Autowired
     public myAdminController(UserService userService, RoleService roleService) {
         this.userService = userService;
