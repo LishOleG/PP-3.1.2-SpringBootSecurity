@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>User</title>
 </head>
+
 <body>
 <table border="2">
     <thead>
@@ -31,10 +32,13 @@
 <div sec:authorize="hasRole('ROLE_ADMIN')">
     <a th:href="@{/admin/update(id=${user.getId()})}">
         <br/><br/>
+
         <form th:method="POST" th:action="@{/admin/delete(id=${user.getId()})} ">
             <input type="submit" value="Delete">
         </form>
+
 </div>
+
 <br/><br/>
 
 <form th:action="@{/logout}" method="post">

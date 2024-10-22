@@ -36,20 +36,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/index", "/test").permitAll() // доступность всем
-                .antMatchers("/authenticated/**").authenticated()
-                .antMatchers("/user/**").access("hasAnyRole('USER', 'ADMIN')") // разрешаем входить на /user пользователям с ролью User
-                .antMatchers("/admin/**", "/role/**").access("hasAnyRole('ADMIN')")
+                    .antMatchers("/", "/index", "/test").permitAll() // доступность всем
+                    .antMatchers("/authenticated/**").authenticated()
+                    .antMatchers("/user/**").access("hasAnyRole('USER', 'ADMIN')") // разрешаем входить на /user пользователям с ролью User
+                    .antMatchers("/admin/**", "/role/**").access("hasAnyRole('ADMIN')")
                 .and()
-                .formLogin()
-                .loginPage("/login")// Spring сам подставит свою логин форму
-                .successHandler(successUserHandler) // подключаем наш SuccessHandler для перенеправления по ролям
+                    .formLogin()
+                    .loginPage("/login")// Spring сам подставит свою логин форму
+                    .successHandler(successUserHandler) // подключаем наш SuccessHandler для перенеправления по ролям
                 .and()
-                .logout()
-                .clearAuthentication(true)
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/");
+                    .logout()
+                    .clearAuthentication(true)
+                    .invalidateHttpSession(true)
+                    .deleteCookies("JSESSIONID")
+                    .logoutSuccessUrl("/");
     }
 
     @Bean

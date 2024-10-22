@@ -16,6 +16,9 @@ public class RoleDaoImpl implements RoleDao{
 
     @Override
     public List<Role> getRolesByIds(List<Long> ids) {
-        return entityManager.createQuery("SELECT DISTINCT r FROM Role r WHERE r.id IN :ids", Role.class).setParameter("ids", ids).getResultList();
+        return entityManager.createQuery(
+                "SELECT DISTINCT r FROM Role r WHERE r.id IN :ids", Role.class)
+                .setParameter("ids", ids)
+                .getResultList();
     }
 }
