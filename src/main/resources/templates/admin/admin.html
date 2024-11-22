@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+  <title>Admin</title>
+    <style>
+        body {
+            padding: 30px;
+            font-size: 18px;
+            font-family: monospace;
+        }
+        table { border-collapse: collapse; }
+        th, td { padding: 5px; border: solid 1px #777; }
+        th { background-color: lightblue; }
+        ul li { list-style: none; padding: 5px 0;}
+    </style>
+</head>
+<body>
+
+    <h2>Привет <span th:text="${user.getName()}"></span></h2>
+
+    <nav>
+        <ul>
+            <li>
+                <a  href="/admin/create">Создать нового пользователя</a>
+            </li>
+            <li>
+                <a href="/user">Мой профиль</a>
+            </li>
+            <li>
+                <a href="/logout">Выйти</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div>
+        <h3>Пользователи:</h3>
+        <table style="border: 1px solid black; border-collapse: collapse">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Возраст</th>
+                <th>Электронная почта</th>
+                <th>Роль</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${userList}">
+                <td th:text="${user.getId()}">ID</td>
+                <td >
+                    <a th:href="@{/admin/{userName}?id={id}(userName=${user.getName()}, id=${user.getId()})}" th:text="${user.getName()}"></a>
+                </td>
+                <td th:text="${user.getAge()}">Age</td>
+                <td th:text="${user.getEmail()}">Email</td>
+                <td><span th:each="roles : ${user.getRoles()}" th:text="'<' + ${roles} + '>'"></span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
