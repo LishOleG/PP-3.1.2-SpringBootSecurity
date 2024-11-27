@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.demo.repository;
+package ru.kata.spring.boot_security.demo.repository;
 
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;

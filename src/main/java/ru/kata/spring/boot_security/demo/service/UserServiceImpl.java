@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.demo.service;
+package ru.kata.spring.boot_security.demo.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,14 +42,14 @@ public class UserServiceImpl implements UserService {
         if (roleRepository.getRoleByName("ROLE_USER") == null) {
             roleRepository.save(userRole);
         }
-        User admin = userRepository.findByEmail("admin@admin.com")
+        User admin = userRepository.findByEmail("admin@manager.com")
                 .orElseGet(() -> {
 
                     User user = new User();
                     user.setName("admin");
                     user.setAge(33);
-                    user.setEmail("admin@admin.com");
-                    user.setPassword(passwordEncoder.encode("123"));
+                    user.setEmail("admin@manager.com");
+                    user.setPassword(passwordEncoder.encode("0406"));
                     user.setRoles(new HashSet<>(Set.of(adminRole, userRole)));
                     return userRepository.save(user);
 

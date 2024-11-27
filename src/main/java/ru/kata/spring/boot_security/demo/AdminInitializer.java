@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.demo;
+package ru.kata.spring.boot_security.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
